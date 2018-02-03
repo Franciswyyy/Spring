@@ -12,10 +12,11 @@
      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
      http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	
-	
+	<!-- 1.将Service的声明周期交给Spring管理 -->
 	<context:annotation-config />
 	<context:component-scan base-package="cn.service" />
 
+	<!-- 2.配置数据源 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
 	  <property name="driverClassName">  
 	      <value>com.mysql.jdbc.Driver</value>  
@@ -32,12 +33,14 @@
 	  </property>  	
 	</bean>
 	
+	<!-- 3.扫描存放SQl的xml文件 -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="typeAliasesPackage" value="cn.pojo" />
 		<property name="dataSource" ref="dataSource"/>
 		<property name="mapperLocations" value="classpath:cn/mapper/*.xml"/>
 	</bean>
 
+	<!-- 4.扫描mapper，将其交给Spring管理 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="cn.mapper"/>
 	</bean>

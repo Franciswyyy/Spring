@@ -12,19 +12,21 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
 
-
+	<!-- 1.扫描Controller,将其注入Spring管理 -->
     <context:annotation-config/>
-
+	
     <context:component-scan base-package="cn.controller">
           <context:include-filter type="annotation" 
           expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
+    <!-- 2.注解驱动，使得访问路径与方法的匹配可以通过注解配置 -->
     <mvc:annotation-driven />
     
+	<!-- 3.静态页面，可以访问 -->
     <mvc:default-servlet-handler />
 
-
+	<!-- 4.试图定位 -->
     <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass"
