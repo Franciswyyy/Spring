@@ -33,7 +33,7 @@
 	</bean>
 	
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="typeAliasesPackage" value="com.how2java.pojo" />
+		<property name="typeAliasesPackage" value="cn.pojo" />
 		<property name="dataSource" ref="dataSource"/>
 		<property name="mapperLocations" value="classpath:cn/mapper/*.xml"/>
 	</bean>
