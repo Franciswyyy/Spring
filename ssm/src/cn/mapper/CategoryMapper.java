@@ -3,6 +3,7 @@ package cn.mapper;
 import java.util.List;
 
 import cn.pojo.Category;
+import cn.util.Page;
 
 public interface CategoryMapper {
 
@@ -20,6 +21,7 @@ public interface CategoryMapper {
       
     public List<Category> list();
     
+    public List<Category> list(Page page);
       
-    public int count();
+    public int total();
 }
